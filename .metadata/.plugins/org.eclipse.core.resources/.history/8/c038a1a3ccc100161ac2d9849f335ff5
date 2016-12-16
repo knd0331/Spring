@@ -1,0 +1,18 @@
+package mapper;
+
+import java.util.Map;
+
+import vo.Member;
+
+public interface MemberMapper {
+	
+	public int insertMember(Member member);
+	
+	public int updatePassword(Map<String, String>map);
+	
+	public int deleteMember(int memberNum);
+	
+	public int selectMember(int memberNum);
+	
+
+}

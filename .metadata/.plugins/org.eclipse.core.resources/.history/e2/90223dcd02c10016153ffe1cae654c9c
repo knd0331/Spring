@@ -1,0 +1,9 @@
+package info_interface;
+
+import vo.Info;
+
+public interface InfoMapper {
+	
+	public int insertInfo(Info info);
+
+}

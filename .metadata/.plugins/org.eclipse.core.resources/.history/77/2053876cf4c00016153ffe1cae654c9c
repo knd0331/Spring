@@ -1,0 +1,20 @@
+package xml_interface;
+
+import vo.Book;
+
+public class Test {
+	
+	public static void main(String[] args) {
+		
+		BookDao dao = new BookDao();
+		
+		Book book = new Book();
+		book.setB_price(5000);
+		book.setB_publisher("연습");
+		book.setB_title("제목1");
+		book.setB_writer("sds");
+		
+		dao.insert(book);
+	}
+
+}

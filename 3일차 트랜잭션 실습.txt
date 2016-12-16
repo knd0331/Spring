@@ -1,0 +1,28 @@
+[데이터베이스 트랜잭션 실습 - mysql]
+create database spring;
+use spring;
+
+drop table if exists product;
+create table product(
+	product_num int primary key auto_increment,
+	product_name varchar(100) not null,
+	price int not null,
+	quantity int not null
+);
+
+drop table if exists sale;
+create table sale(
+	sale_num int primary key auto_increment,
+	product_num int not null,
+	sale_date datetime not null,
+	buyer varchar(50) not null,
+	sale_count int not null
+);
+
+insert into product(product_name, price, quantity) values
+	('티셔츠',5000,10);
+insert into product(product_name, price, quantity) values
+	('청바지',15000,10);
+insert into product(product_name, price, quantity) values
+	('스커트',15000,10);
+----------------------------------------------------------------------------------------

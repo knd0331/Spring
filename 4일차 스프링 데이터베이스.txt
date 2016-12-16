@@ -1,0 +1,53 @@
+* 자바 데이터베이스 프로그래밍 매뉴얼
+1. 드라이버 로딩
+2. 커넥션 연결
+3. SQL 작성
+4. PreparedStatement에 값 설정
+5. 쿼리 실행 후 결과값 제어
+6. 사용한 자원 반납
+---------------------------------------------------------------------------------------
+* 자바 데이터베이스 개선 요구사항
+1. 커넥션 관리
+2. close를 위한 try-catch-finally 구문
+3. insert, update 등 인자가 많이 전달되는 쿼리 실행시 자료형, 순서 
+  개발자가 다 처리?
+4. select 실행 후 결과 ResultSet을 직접 핸들링 해야하나?
+---------------------------------------------------------------------------------------
+create table book(
+	book_num int primary key auto_increment,
+	title varchar(100) not null,
+	writer varchar(50) not null,
+	price int not null,
+	publisher varchar(50)
+);
+---------------------------------------------------------------------------------------
+- 필요 dependency : 
+	spring context,core,jdbc/ commons-dbcp/ mysql-connector
+- 등장 객체 : 
+	DataSource-JdbcTemplate-BookDao
+  DataSource : 드라이버 로딩 및 커넥션 관리
+  JdbcTemplate : DataSource 객체를 의존함. 인자 전달 등등 기능
+  BookDao : JdbcTemplate 객체를 의존함. 직접 작성하는 클래스.
+----------------------------------------------------------------------------------------
+[스프링 데이터베이스 실습순서]
+1. 스프링 빈 설정파일(xml)에 <bean> 태그를 이용하여 DataSource 객체 등록
+2. 스프링 빈 설정파일(xml)에 <bean> 태그를 이용하여 JdbcTemplate 
+  객체 등록하고 DataSource객체 장착
+3. BookDao 클래스 작성
+   3.1 jdbcTemplate을 장착할 수 있도록 생성자 또는 설정자 작성.
+   3.2 CRUD 메소드 작성(insert,update,delete: jdbcTemplate.update)
+  
+4. BookDao 클래스에게 jdbcTemplate 객체(4.1, 4.2 중 선택하면 됨)
+   4.1 스프링 빈 설정파일(xml)에 <bean> 태그를 이용하여 Dao 객체를 등록하고 
+      jdbcTemplate 객체를 장착
+   4.2 @Component 애노테이션과 @Autowired 애노테이션을 이용해서
+      Dao 객체가 jdbcTemplate 객체를 확보하도록 함.
+5. Test 동작하는지 확인
+
+
+
+
+
+
+
+

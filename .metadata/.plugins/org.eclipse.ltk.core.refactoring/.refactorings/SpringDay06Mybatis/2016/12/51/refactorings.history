@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring comment="Copy element &apos;book-mapper.xml&apos; to &apos;SpringDay07Mybatis2/src/mybatis_xml&apos;&#x0D;&#x0A;- Original project: &apos;SpringDay06Mybatis&apos;&#x0D;&#x0A;- Destination element: &apos;SpringDay07Mybatis2/src/mybatis_xml&apos;&#x0D;&#x0A;- Original element: &apos;book-mapper.xml&apos;" description="Copy file" destination="=SpringDay07Mybatis2/src&lt;mybatis_xml" element1="src/mybatis_xml/book-mapper.xml" files="1" flags="589830" folders="0" id="org.eclipse.jdt.ui.copy" policy="org.eclipse.jdt.ui.copyResources" stamp="1481602942684" units="0" version="1.0"/>
+</session>

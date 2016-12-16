@@ -1,0 +1,5 @@
+package mybatis_interface;
+
+public @interface Insert {
+
+}

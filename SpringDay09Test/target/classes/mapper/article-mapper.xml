@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="mapper.ArticleMapper">
+	<select id="selectArticle" parameterType="Integer" resultMap="Article">
+		SELECT *
+		FROM BOARD
+		WHERE ARTICLE_NUM = #{article_num}
+	</select>
+	
+	<select id="selectArticleList" resultMap="Article" parameterType="map">
+		SELECT *
+		FROM BOARD
+		ORDER BY FAMILY DESC, DEPTH ASC LIMIT #{startRow},#{endRow}
+		
+	</select>
+	
+	<insert id="insertArticle" parameterType="Article" useGeneratedKeys="true"
+		keyColumn="article_num" keyProperty="article_num">
+		INSERT INTO BOARD(WRITEDATE,READCOUNT,WRITER,PASSWORD,TITLE,CONTENT,parent,depth)
+		VALUES (now(),#{readcount},#{writer},#{password},#{title},#{content},0,0)
+	</insert>
+	
+	<delete id="deleteArticle" parameterType="Integer">
+		DELETE FROM BOARD
+		WHERE ARTICLE_NUM = #{article_num}
+	</delete>
+	
+	<update id="updateArticle" parameterType="Article">
+		UPDATE BOARD 
+		SET WRITEDATE = now(), READCOUNT = #{readcount}, WRITER = #{writer}, PASSWORD = #{password}, TITLE = #{title}, CONTENT = #{content}
+		WHERE ARTICLE_NUM = #{article_num}
+	</update>
+	
+	<update id="updateReadCount" parameterType="Integer">
+		UPDATE BOARD
+		SET READCOUNT = READCOUNT +1
+		WHERE ARTICLE_NUM = #{article_num}
+	</update>
+	
+	<update id="updateFamily" parameterType="Integer">
+		UPDATE BOARD
+		SET FAMILY = ARTICLE_NUM
+		WHERE ARTICLE_NUM = #{article_num}
+	</update>
+	
+	
+	<insert id="insertReply" parameterType="Article">
+		INSERT INTO BOARD(WRITEDATE,READCOUNT,WRITER,PASSWORD,TITLE,CONTENT,FAMILY,PARENT,DEPTH)
+		VALUES (now(),#{readcount},#{writer},#{password},#{title},#{content},#{family},#{parent},#{depth})
+	</insert>
+	
+	<resultMap type="Article" id="Article">
+		<result column="article_num" property="article_num"/>
+		<result column="writedate" property="writedate"/>
+		<result column="readcount" property="readcount"/>
+		<result column="writer" property="writer"/>
+		<result column="password" property="password"/>
+		<result column="title" property="title"/>
+		<result column="content" property="content"/>
+		<result column="family" property="family"/>
+		<result column="parent" property="parent"/>
+		<result column="depth" property="depth"/>
+	</resultMap>
+</mapper>

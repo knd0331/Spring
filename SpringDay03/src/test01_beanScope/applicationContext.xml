@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+<!-- singleton(default) 객체 하나만 만듬 -->
+<bean id="sample1" class="test01_beanScope.Sample" scope="singleton"/>
+<!-- prototype 요청 할때마다 객체 생성 -->
+<bean id="sample2" class="test01_beanScope.Sample" scope="prototype"/>
+
+
+</beans>

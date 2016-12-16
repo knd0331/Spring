@@ -1,0 +1,16 @@
+package info_interface;
+
+import vo.Info;
+
+public class Test {
+	public static void main(String[] args) {
+		
+		InfoDao dao = new InfoDao();
+		
+		Info i  = new Info("Kim", "901213", "°­³²±¸", "010-1234-5678");
+		
+		System.out.println(dao.insertInfo(i));
+		
+	}
+
+}

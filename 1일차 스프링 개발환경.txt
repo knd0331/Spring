@@ -1,0 +1,15 @@
+[스프링 개요]
+1. 객체 관리(DI - Dependency Injection 의존성주입)
+2. DB(Spring, Mybatis, Spring-Mybatis연동)
+3. AOP(Aspect Oriented Programming 관점지향 프로그래밍)
+4. MVC - 웹
+
+[스프링 1일차 개발환경 구축]
+툴1 - STS : eclipse -> help-marketplace -> sts 검색 및 install
+툴2 - Maven : 필요한 jar 파일들을 다운로드 받아서 프로젝트에 집어넣는 작업
+ >> 자바프로젝트 -> 프로젝트 우클릭 -> configure -> 
+    convert to maven project -> finish
+ >> 생성된 pom.xml 파일에 <dependencies>태그 추가 후
+    www.mvnrepository.com 사이트에서<dependency>를 복사한후 
+    붙여넣기 저장 하면 jar 파일들이 현재 프로젝트로 다운로드 됨.
+-----------------------------------------------------------------------------------------

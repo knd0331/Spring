@@ -1,0 +1,46 @@
+package repository;
+
+import java.util.List;
+
+import org.mybatis.spring.SqlSessionTemplate;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Component;
+
+import mapper.BookMapper;
+import vo.Book;
+
+@Component
+public class BookDao {
+	@Autowired
+	private SqlSessionTemplate session;
+	
+	public void setSession(SqlSessionTemplate session) {
+		this.session = session;
+	}
+/////////////////////////////////////////////////////////
+	public int insert(Book book){
+		BookMapper mapper = session.getMapper(BookMapper.class);
+		return mapper.insertBook(book);
+	}
+	
+	public int update(Book book){
+		BookMapper mapper = session.getMapper(BookMapper.class);
+		return mapper.updateBook(book);
+	}
+	
+	public Book select(int bookNum){
+		BookMapper mapper = session.getMapper(BookMapper.class);
+		return mapper.selectBook(bookNum);
+	}
+	
+	public List<Book> selectAllList(){
+		BookMapper mapper = session.getMapper(BookMapper.class);
+		return mapper.selectBookList();
+	}
+}
+
+
+
+
+
+

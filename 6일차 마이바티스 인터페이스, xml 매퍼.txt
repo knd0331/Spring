@@ -1,0 +1,39 @@
+[Mybatis interface 매퍼 실습]
+1. 설정파일(mybatis-config.xml)
+   :<mapper> 태그에 resource 속성을 class="매퍼의 풀 패키지명"으로 변경함.
+2. 매퍼작성(MemberMapper.java 인터페이스)
+   : xml 태그 문법 대신 @Insert, @Update 등의 애노테이션과 추상메소드를 
+    이용하여 인터페이스 매퍼 작성.
+
+3. DAO 클래스 작성
+   : xml 매퍼의 네임스페이스.태그id (yangyu.insertMember) 형태로 실행하던 쿼리를
+    getMapper(MemberMapper.class)형태로 변경하여 추상메소드 호출 형태로 변경됨.
+---------------------------------------------------------------------------------------
+[Mybatis xml+interface 매퍼 실습]
+* xml 매퍼의 장점 : 자바파일과 SQL 쿼리 파일이 분리됨.
+  xml 매퍼의 단점 : Dao 에서 호출할 때 네임스페이스 개념이 생소함.
+* interface 매퍼의 장점 : Dao 에서 호출할 때 추상메소드 호출 형태가 비교적 친숙함.
+  interface 매퍼의 단점 : SQL 쿼리가 자바파일에 섞여있음.
+
+[xml+interface 매퍼일 때 주의사항]
+* xml 매퍼 파일에는 SQL 문장들이 들어가고 interface 매퍼에는 추상메소드만 작성
+1. 마이바티스 설정파일(mybatis-config.xml)의 mapper 부분에 등록하는 매퍼는 xml 매퍼경로
+2. interface의 추상메소드 이름은 xml매퍼의 태그 id와 일치시켜야 함.
+3. xml 매퍼의 namespace 속성은 interface 매퍼의 full 패키지명과 동일하게 작성해야 함.
+4. Dao는 interface 매퍼 버전 Dao와 동일하게 작성됨.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
