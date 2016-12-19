@@ -1,13 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <qualifiedTypeNameHistroy>
-<fullyQualifiedTypeName name="ver2_1.KoreaTire"/>
-<fullyQualifiedTypeName name="ver2_1.ChinaTire"/>
-<fullyQualifiedTypeName name="ver2_2.ChinaTire"/>
-<fullyQualifiedTypeName name="org.springframework.context.support.FileSystemXmlApplicationContext"/>
-<fullyQualifiedTypeName name="java.rmi.activation.ActivationGroupDesc.CommandEnvironment"/>
-<fullyQualifiedTypeName name="ver5.Tire"/>
-<fullyQualifiedTypeName name="ver6.KoreaTire"/>
-<fullyQualifiedTypeName name="org.springframework.beans.factory.annotation.Qualifier"/>
 <fullyQualifiedTypeName name="java.lang.Override"/>
 <fullyQualifiedTypeName name="test01_oracle.vo.BookVO"/>
 <fullyQualifiedTypeName name="test01_spring.vo.BookVO"/>
@@ -36,7 +28,6 @@
 <fullyQualifiedTypeName name="info_interface.InfoDao"/>
 <fullyQualifiedTypeName name="vo.Info"/>
 <fullyQualifiedTypeName name="org.mybatis.spring.SqlSessionTemplate"/>
-<fullyQualifiedTypeName name="org.springframework.stereotype.Component"/>
 <fullyQualifiedTypeName name="org.springframework.beans.factory.annotation.Autowired"/>
 <fullyQualifiedTypeName name="repository.MemberDao"/>
 <fullyQualifiedTypeName name="oracle.sql.TIMESTAMP"/>
@@ -60,4 +51,13 @@
 <fullyQualifiedTypeName name="org.aspectj.lang.JoinPoint"/>
 <fullyQualifiedTypeName name="java.lang.Exception"/>
 <fullyQualifiedTypeName name="java.lang.Object"/>
+<fullyQualifiedTypeName name="org.aspectj.lang.annotation.Before"/>
+<fullyQualifiedTypeName name="org.aspectj.lang.annotation.AfterReturning"/>
+<fullyQualifiedTypeName name="org.aspectj.lang.annotation.AfterThrowing"/>
+<fullyQualifiedTypeName name="org.aspectj.lang.annotation.After"/>
+<fullyQualifiedTypeName name="org.springframework.stereotype.Component"/>
+<fullyQualifiedTypeName name="org.aspectj.lang.annotation.Aspect"/>
+<fullyQualifiedTypeName name="org.aspectj.lang.annotation.Pointcut"/>
+<fullyQualifiedTypeName name="org.aspectj.lang.annotation.Around"/>
+<fullyQualifiedTypeName name="test02_interface.Sample"/>
 </qualifiedTypeNameHistroy>
