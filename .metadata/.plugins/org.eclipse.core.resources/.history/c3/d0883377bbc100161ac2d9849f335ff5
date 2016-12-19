@@ -1,9 +1,0 @@
-package repository;
-
-import org.mybatis.spring.SqlSessionTemplate;
-
-public class MemberDao {
-	
-	private SqlSessionTemplate sessionTemplate;
-
-}
