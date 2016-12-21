@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="mapper.BookMapper">
+
+	<!-- SQL 명령어 작성 파일 -->
+	<insert id="insert" parameterType="Book" useGeneratedKeys="true"
+		keyColumn="book_num" keyProperty="bookNum">
+		INSERT INTO
+		BOOK(TITLE,WRITER,PUBLISHER,PRICE)
+		VALUES(#{title},#{writer},#{publisher},#{price})
+	</insert>
+
+	<update id="update" parameterType="Book">
+		update book set price=#{price},title=#{title},writer=#{writer},publisher=#{publisher}
+		where book_num=#{bookNum}
+	</update>
+
+	<delete id="delete" parameterType="Book">
+		DELETE FROM BOOK
+		WHERE
+		BOOK_NUM=#{bookNum}
+	</delete>
+
+	<select id="select" parameterType="Integer" resultMap="bookMap">
+		SELECT * FROM BOOK
+		WHERE BOOK_NUM=#{bookNum}
+	</select>
+
+	<select id="selectList" parameterType="Map" resultMap="bookMap">
+		SELECT * FROM BOOK ORDER BY BOOK_NUM DESC LIMIT #{startRow},#{endRow}
+	</select>
+
+	<resultMap type="Book" id="bookMap">
+		<result column="book_num" property="bookNum" />
+		<result column="title" property="title" />
+		<result column="writer" property="writer" />
+		<result column="price" property="price" />
+		<result column="publisher" property="publisher" />
+	</resultMap>
+
+</mapper>
+
+
+
+
+
+
