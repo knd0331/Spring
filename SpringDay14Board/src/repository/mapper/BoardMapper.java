@@ -16,5 +16,9 @@ public interface BoardMapper {
 	public List<Article> selectList(Map<String, Integer> map);
 
 	public int selectArticleCount();
+	
+	public int update(Article article);
+	
+	public int delete(Article article);
 
 }

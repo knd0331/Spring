@@ -33,8 +33,8 @@
 
 	<a href="boardList.do">[목록]</a>
 	<c:if test="${sessionScope.loginId==article.writer}">
-		<a href="updateForm.do">[수정]</a>
-		<a href="deleteForm.do">[삭제]</a>
+		<a href="updateForm.do?articleNum=${article.articleNum}">[수정]</a>
+		<a href="deleteForm.do?articleNum=${article.articleNum}">[삭제]</a>
 	</c:if>
 
 </body>

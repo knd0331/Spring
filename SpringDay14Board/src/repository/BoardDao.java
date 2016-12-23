@@ -48,5 +48,13 @@ public class BoardDao {
 		BoardMapper mapper = session.getMapper(BoardMapper.class);
 		return mapper.selectArticleCount();
 	}
+	public int update(Article article){
+		BoardMapper mapper = session.getMapper(BoardMapper.class);
+		return mapper.update(article);
+	}
+	public int delete(Article article){
+		BoardMapper mapper = session.getMapper(BoardMapper.class);
+		return mapper.delete(article);
+	}
 
 }

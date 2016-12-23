@@ -16,6 +16,12 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 		READ_COUNT=READ_COUNT+1 WHERE ARTICLE_NUM=#{articleNum}
 	</update>
 
+	<update id="update" parameterType="Article">
+		UPDATE BOARD SET
+		TITLE=#{title},CONTENT=#{content}
+		WHERE ARTICLE_NUM=#{articleNum}
+	</update>
+
 	<select id="select" parameterType="Integer" resultMap="articleMap">
 		SELECT *
 		FROM BOARD WHERE
@@ -28,8 +34,13 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	</select>
 
 	<select id="selectArticleCount" resultType="Integer">
-		SELECT COUNT(*) FROM BOARD
+		SELECT COUNT(*) FROM
+		BOARD
 	</select>
+
+	<delete id="delete" parameterType="Article">
+		DELETE FROM BOARD WHERE ARTICLE_NUM=#{articleNum}
+	</delete>
 
 	<resultMap type="Article" id="articleMap">
 		<result property="articleNum" column="article_num" />

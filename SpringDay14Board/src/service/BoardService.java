@@ -27,7 +27,7 @@ public class BoardService {
 		article.setReadCount(0);
 		article.setWriteDate(new Date());
 
-		if(dao.insert(article)>0){
+		if (dao.insert(article) > 0) {
 			result = article.getArticleNum();
 		}
 		return result;
@@ -37,9 +37,9 @@ public class BoardService {
 	public Article read(int articleNum, String id) {
 		Article article = dao.select(articleNum);
 
-		if (id==null||article != null && !id.equals(article.getWriter())) {
+		if (id == null || article != null && !id.equals(article.getWriter())) {
 			dao.updateReadCount(articleNum);
-			article.setReadCount(article.getReadCount()+1);
+			article.setReadCount(article.getReadCount() + 1);
 		}
 		return article;
 	}
@@ -67,6 +67,29 @@ public class BoardService {
 			endPage = totalPage;
 		return new ArticlePage(articleList, startPage, endPage, currentPage, totalPage);
 
+	}
+
+	// 글수정
+	public int modify(String id, Article article) {
+		Article original = dao.select(article.getArticleNum());
+		int result = 0;
+
+		if (id.equals(original.getWriter())) {
+			result = dao.update(article);
+		}
+		return result;
+
+	}
+
+	// 글 삭제
+	public int delete(String id, Article article) {
+		Article original = dao.select(article.getArticleNum());
+		int result = 0;
+
+		if (id.equals(original.getWriter())) {
+			result = dao.delete(article);
+		}
+		return result;
 	}
 
 }
