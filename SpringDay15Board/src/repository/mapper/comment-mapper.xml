@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="repository.mapper.CommentMapper">
+
+	<insert id="insert" parameterType="Comment" useGeneratedKeys="true"
+		keyProperty="commentNum" keyColumn="comment_num">
+		INSERT INTO
+		COMMENT(ARTICLE_NUM,ID,CONTENT,WRITE_DATE)
+		VALUES(#{articleNum},#{id},#{content},#{writeDate})
+	</insert>
+
+	<update id="update" parameterType="Comment">
+		UPDATE COMMENT SET
+		CONTENT=#{content}
+		WHERE COMMENT_NUM=#{commentNum}
+	</update>
+
+	<select id="select" parameterType="Integer" resultMap="commentMap">
+		SELECT *
+		FROM COMMENT WHERE
+		COMMENT_NUM=#{commentNum}
+	</select>
+
+	<select id="selectList" parameterType="Map" resultMap="commentMap">
+		SELECT * FROM COMMENT WHERE ARTICLE_NUM=#{articleNum} ORDER BY COMMENT_NUM DESC
+		LIMIT #{startRow},#{count}
+	</select>
+	
+
+	<delete id="delete" parameterType="Comment">
+		DELETE FROM COMMENT WHERE
+		COMMENT_NUM=#{commentNum}
+	</delete>
+
+	<select id="selectCommentCount" resultType="Integer">
+		SELECT COUNT(*) FROM
+		COMMENT
+	</select>
+
+
+	<resultMap type="Comment" id="commentMap">
+		<result property="commentNum" column="comment_num" />
+		<result property="articleNum" column="article_num" />
+		<result property="id" column="id" />
+		<result property="content" column="content" />
+		<result property="writeDate" column="write_date" />
+	</resultMap>
+</mapper>
