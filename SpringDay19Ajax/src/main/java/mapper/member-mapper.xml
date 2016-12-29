@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="mapper.MemberMapper">
+
+	<!-- SQL 명령어 작성 파일 -->
+	<insert id="insertMember" parameterType="Member">
+		INSERT INTO
+		MEMBER(ID,PASSWORD,EMAIL,PHONE)
+		VALUES(#{id},#{password},#{email},#{phone})
+	</insert>
+
+	<select id="selectId" parameterType="String" resultType="String">
+		SELECT ID FROM MEMBER
+		WHERE ID=#{id}
+	</select>
+	<!-- <update id="updateBook" parameterType="Book"> -->
+	<!-- update book set title=#{b_title} where book_num=#{b_book_num} -->
+	<!-- </update> -->
+
+	<!-- <delete id="deleteBook" parameterType="Map"> -->
+	<!-- DELETE FROM BOOK -->
+	<!-- WHERE -->
+	<!-- BOOK_NUM>=#{startRow} AND #{endRow}>=BOOK_NUM -->
+	<!-- </delete> -->
+
+
+	<!-- <select id="selectBookList" resultMap="bookMap"> -->
+	<!-- SELECT * FROM BOOK -->
+	<!-- </select> -->
+
+	<!-- <resultMap type="Book" id="bookMap"> -->
+	<!-- <result column="book_num" property="b_book_num"/> -->
+	<!-- <result column="writer" property="b_writer"/> -->
+	<!-- <result column="publisher" property="b_publisher"/> -->
+	<!-- <result column="price" property="b_price"/> -->
+	<!-- <result column="title" property="b_title"/> -->
+	<!-- </resultMap> -->
+</mapper>
+
+
+
+
+
+
