@@ -1,5 +1,8 @@
 package controller;
 
+import java.io.IOException;
+
+import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -19,6 +22,7 @@ public class MemberController {
 	public void setMemberService(MemberService memberService) {
 		this.memberService = memberService;
 	}
+
 	@RequestMapping("/joinForm.do")
 	public String joinForm() {
 		return "join_form";
@@ -28,30 +32,50 @@ public class MemberController {
 	public String loginForm() {
 		return "login_form";
 	}
-	
+
 	@RequestMapping("idCheck.do")
 	@ResponseBody
-	public String idCheck(String id){
+	public String idCheck(String id) {
 		boolean rs = memberService.checkId(id);
-		return rs+"";
+		return rs + "";
 	}
+
 	@RequestMapping(value = "/join.do", method = RequestMethod.POST)
 	public String join(Member member) {
-		if(memberService.joinMember(member)==true){
+		if (memberService.joinMember(member) == true) {
 			return "join_success";
-		}else{
+		} else {
 			return "join_fail";
 		}
 	}
 
 	@RequestMapping(value = "/login.do", method = RequestMethod.POST)
-	public String login(HttpSession session, String id, String pw) {
-		if (memberService.memberCheck(id, pw)) {
+	public void login(HttpSession session, String id, String password, HttpServletResponse response) {
+		if (memberService.memberCheck(id, password)) {
 			session.setAttribute("loginId", id);
-			return "login_success";
+			try {
+				response.sendRedirect("boardList.do");
+			} catch (IOException e) {
+				e.printStackTrace();
+			}
 		} else {
-			return "login_error";
+			try {
+				response.sendRedirect("loginError.do");
+			} catch (IOException e) {
+				e.printStackTrace();
+			}
 		}
+	}
+
+	@RequestMapping("/loginError.do")
+	public String error() {
+		return "login_error";
+	}
+
+	@RequestMapping("/logout.do")
+	public String logout(HttpSession session) {
+		session.invalidate();
+		return "logout";
 	}
 
 }

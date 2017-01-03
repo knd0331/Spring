@@ -4,13 +4,13 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=EUC-KR">
-<title>회원가입 성공</title>
+<title>로그아웃</title>
 </head>
 <body>
 
 	<script type="text/javascript">
-		alert("회원가입 완료.");
-		location.href = "boardList.do";
+		alert("로그아웃.");
+		location.href = "index.jsp";
 	</script>
 
 </body>

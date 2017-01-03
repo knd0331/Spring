@@ -36,7 +36,7 @@ public class MemberService {
 	}
 	
 	public boolean memberCheck(String id, String password){
-		Member member = memberDao.select(id, password);
+		Member member = memberDao.select(id);
 		
 		if(member==null || 
 				!member.getPassword().equals(password)){

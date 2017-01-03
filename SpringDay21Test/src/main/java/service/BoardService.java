@@ -31,7 +31,7 @@ public class BoardService {
 		return result;
 	}
 
-	public Board read(int articleNum, String id, int currentPage) {
+	public Board read(int articleNum, String id) {
 
 		Board board = dao.select(articleNum);
 
@@ -39,6 +39,12 @@ public class BoardService {
 			dao.updateReadCount(articleNum);
 			board.setReadCount(board.getReadCount() + 1);
 		}
+
+		return board;
+	}
+	public Board nomalRead(int articleNum, String id) {
+
+		Board board = dao.select(articleNum);
 
 		return board;
 	}

@@ -21,9 +21,9 @@ public class MemberDao {
 		return mapper.insert(member);
 	}
 	
-	public Member select(String id,String password){
+	public Member select(String id){
 		MemberMapper mapper = session.getMapper(MemberMapper.class);
-		return mapper.select(id, password);
+		return mapper.select(id);
 	}
 	public String selectId(String id){
 		MemberMapper mapper = session.getMapper(MemberMapper.class);

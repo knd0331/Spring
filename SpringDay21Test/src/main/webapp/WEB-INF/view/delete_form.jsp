@@ -4,14 +4,15 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=EUC-KR">
-<title>회원가입 성공</title>
+<title>삭제</title>
 </head>
 <body>
 
-	<script type="text/javascript">
-		alert("회원가입 완료.");
-		location.href = "boardList.do";
-	</script>
+	<div>
+			삭제 하시겠습니까?<br>
+			 <a href="delete.do?articleNum=${articleNum}"><button>Yes</button></a><br>
+			 <a href="boardList.do"><button>No</button></a>
+	</div>
 
 </body>
 </html>

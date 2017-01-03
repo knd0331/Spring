@@ -30,6 +30,14 @@ public class BoardDao {
 		BoardMapper mapper = session.getMapper(BoardMapper.class);
 		return mapper.updateReadCount(articleNum);
 	}
+	public int update(Board board){
+		BoardMapper mapper = session.getMapper(BoardMapper.class);
+		return mapper.update(board);
+	}
+	public int delete(Board board){
+		BoardMapper mapper = session.getMapper(BoardMapper.class);
+		return mapper.delete(board);
+	}
 
 	public Board select(int articleNum) {
 		BoardMapper mapper = session.getMapper(BoardMapper.class);
@@ -47,14 +55,6 @@ public class BoardDao {
 	public int selectCount() {
 		BoardMapper mapper = session.getMapper(BoardMapper.class);
 		return mapper.selectBoardCount();
-	}
-	public int update(Board board){
-		BoardMapper mapper = session.getMapper(BoardMapper.class);
-		return mapper.update(board);
-	}
-	public int delete(Board board){
-		BoardMapper mapper = session.getMapper(BoardMapper.class);
-		return mapper.delete(board);
 	}
 
 }

@@ -37,11 +37,12 @@
 		</c:choose>
 	</table>
 	<c:forEach begin="${boardPage.startPage}"
-		end="${boardPage.endPage}" var="i">
+		end="${boardPage.startPage}" var="i">
 		<a href="boardList.do?page=${i}"> [${i}] </a>
 		<br>
 	</c:forEach>
 	<a href="writeForm.do"><button>글쓰기</button></a>
+	<a href="logout.do"><button>로그아웃</button></a>
 
 </body>
 </html>
